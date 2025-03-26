@@ -19,10 +19,8 @@ import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -30,10 +28,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.composed
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.loginpage.ui.theme.LoginPageTheme
@@ -44,7 +40,14 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             LoginPageTheme {
-
+                Surface (
+                    modifier = Modifier
+                        .fillMaxSize()) {
+                    LoginPage(
+                        modifier = Modifier
+                            .wrapContentSize(Alignment.Center)
+                    )
+                }
             }
         }
     }
@@ -69,13 +72,13 @@ fun LoginPreview() {
 @Composable
 fun LoginPage(modifier: Modifier = Modifier) {
 
-    var Username by remember { mutableStateOf("") }
-    var Password by remember { mutableStateOf("") }
+    var username by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
 
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.surface),
+            .background(MaterialTheme.colorScheme.onPrimary),
         contentAlignment = Alignment.Center
     ){
         Column (
@@ -86,13 +89,13 @@ fun LoginPage(modifier: Modifier = Modifier) {
                 modifier = modifier
             )
             InputsFields(
-                username = Username,
-                password = Password,
+                username = username,
+                password = password,
                 onUsernameChange = {
-                    Username = it
+                    username = it
                 },
                 onPasswordChange = {
-                    Password = it
+                    password = it
                 },
                 modifier = modifier
             )
