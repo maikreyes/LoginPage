@@ -12,9 +12,8 @@ Este proyecto implementa una pantalla de inicio de sesión en Android utilizando
 
 ## Capturas de Pantalla 📷🖼️🌗
 
-| Modo Claro | Modo Oscuro |
-| ---------- | ----------- |
-|            |             |
+<img width="518" alt="Captura de pantalla 2025-03-26 a la(s) 2 46 48 p m" src="https://github.com/user-attachments/assets/7f714b65-65af-471a-a2c4-0e500e52d7fc" />
+
 
 ## Tecnologías Utilizadas 🛠️💻🚀
 
