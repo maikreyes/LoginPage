@@ -6,6 +6,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -70,32 +72,41 @@ fun LoginPage(modifier: Modifier = Modifier) {
     var Username by remember { mutableStateOf("") }
     var Password by remember { mutableStateOf("") }
 
-    Column (
-        modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        LoginImage(
-            modifier = modifier
-        )
-        InputsFields(
-            username = Username,
-            password = Password,
-            onUsernameChange = {
-                Username = it
-            },
-            onPasswordChange = {
-                Password = it
-            },
-            modifier = modifier
-        )
-        Spacer(
-            modifier = modifier
-                .padding(128.dp)
-        )
-        LoginButtons(
-            modifier = modifier
-        )
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.surface),
+        contentAlignment = Alignment.Center
+    ){
+        Column (
+            modifier = modifier,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            LoginImage(
+                modifier = modifier
+            )
+            InputsFields(
+                username = Username,
+                password = Password,
+                onUsernameChange = {
+                    Username = it
+                },
+                onPasswordChange = {
+                    Password = it
+                },
+                modifier = modifier
+            )
+            Spacer(
+                modifier = modifier
+                    .padding(128.dp)
+            )
+            LoginButtons(
+                modifier = modifier
+            )
+        }
     }
+
+
 }
 
 @Composable
